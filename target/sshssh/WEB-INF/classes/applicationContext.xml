@@ -1,0 +1,86 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-4.1.xsd
+        http://www.springframework.org/schema/aop 
+        http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+        http://www.springframework.org/schema/tx 
+        http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+<!--********************************************配置Spring***************************************-->
+        <!-- 自动加载构建bean-->
+		<context:component-scan base-package="com.zjr">
+            <!-- 扫描时跳过 @Controller 注解的JAVA类（控制器） -->
+            <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+        </context:component-scan>
+                  
+<!--********************************************配置hibernate********************************************-->     
+        <!--加载数据库属性配置文件-->
+		<context:property-placeholder location="classpath:db.properties" />
+		<!--配置数据源-->
+		<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+			<property name="jdbcUrl" value="${db.url}"></property>
+			<property name="driverClass" value="${db.driverClassName}"></property>
+			<property name="user" value="${db.username}"></property>
+			<property name="password" value="${db.password}"></property>
+			<property name="maxPoolSize" value="40"></property>
+			<property name="minPoolSize" value="1"></property>
+			<property name="initialPoolSize" value="1"></property>
+			<property name="maxIdleTime" value="20"></property>
+		</bean>
+		
+	<!--配置session工厂-->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+		<property name="packagesToScan" value="com.zjr.entity" />
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.hbm2ddl.auto">update</prop> <!--hibernate根据实体自动生成数据库表-->
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>   <!--指定数据库方言-->
+                <prop key="hibernate.show_sql">true</prop>     <!--在控制台显示执行的数据库操作语句-->
+
+				<!-- 缓存设置 -->
+				<prop key="cache.provider_configuration_file_resource_path">/ehcache.xml</prop>
+				<prop key="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</prop>
+				<prop key="cache.use_query_cache">true</prop>
+            	<prop key="current_session_context_class">thread</prop>
+        		<prop key="hibernate.temp.use_jdbc_metadata_defaults">false</prop>
+        	</props>
+        </property>
+    </bean>
+	    
+	<!-- 配置事务管理器 -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<!-- 配置通知，用到的方法都切入事务(Transaction切点) -->
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>             
+			<tx:method name="insert*" propagation="REQUIRED" />
+			<tx:method name="update*" propagation="REQUIRED" />
+			<tx:method name="edit*" propagation="REQUIRED" />
+			<tx:method name="save*" propagation="REQUIRED" />
+			<tx:method name="add*" propagation="REQUIRED" />
+			<tx:method name="new*" propagation="REQUIRED" />
+			<tx:method name="set*" propagation="REQUIRED" />
+			<tx:method name="remove*" propagation="REQUIRED" />
+			<tx:method name="del*" propagation="REQUIRED" />
+			<tx:method name="get*" propagation="REQUIRED" />
+			<tx:method name="find*" read-only="true"/>
+			<tx:method name="*" propagation="REQUIRED" read-only="true" /> 
+		</tx:attributes>    
+	</tx:advice >
+	<!-- 配置事务切面 -->
+	<aop:config expose-proxy="true">
+		<aop:pointcut id="serviceOperation"
+			expression="execution(* com.zjr.service.impl..*.*(..))" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="serviceOperation" />
+	</aop:config>
+</beans>
