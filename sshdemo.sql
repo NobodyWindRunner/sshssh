@@ -10,10 +10,49 @@ Target Server Type    : MYSQL
 Target Server Version : 50539
 File Encoding         : 65001
 
-Date: 2017-11-22 14:47:57
+Date: 2017-11-23 14:49:28
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for db_department
+-- ----------------------------
+DROP TABLE IF EXISTS `db_department`;
+CREATE TABLE `db_department` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- ----------------------------
+-- Records of db_department
+-- ----------------------------
+INSERT INTO `db_department` VALUES ('1', '项目部');
+INSERT INTO `db_department` VALUES ('2', '技术部');
+
+-- ----------------------------
+-- Table structure for db_employee
+-- ----------------------------
+DROP TABLE IF EXISTS `db_employee`;
+CREATE TABLE `db_employee` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `job` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `name` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sex` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `DEPT_ID` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_pb2w7i8r3ku40leaqtp0or3vv` (`DEPT_ID`),
+  CONSTRAINT `FK_pb2w7i8r3ku40leaqtp0or3vv` FOREIGN KEY (`DEPT_ID`) REFERENCES `db_department` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- ----------------------------
+-- Records of db_employee
+-- ----------------------------
+INSERT INTO `db_employee` VALUES ('20', '23', '32213222', '女', '2');
+INSERT INTO `db_employee` VALUES ('22', '23213', '3213124', '男', '1');
+INSERT INTO `db_employee` VALUES ('25', '333333', '33333', '女', '1');
+INSERT INTO `db_employee` VALUES ('26', '333', '张三', '男', '2');
 
 -- ----------------------------
 -- Table structure for db_menuinfo
@@ -42,12 +81,12 @@ INSERT INTO `db_menuinfo` VALUES ('6', '', '', '项目管理', '', '1', '1');
 INSERT INTO `db_menuinfo` VALUES ('7', '', '', '项目添加', 'project/add', '0', '6');
 INSERT INTO `db_menuinfo` VALUES ('8', '', '', '项目列表', 'project/list', '1', '6');
 INSERT INTO `db_menuinfo` VALUES ('9', '', '', '历史项目', 'project/hislist', '2', '6');
-INSERT INTO `db_menuinfo` VALUES ('10', '', '', '菜单列表', '/kc/userinfo/user/list.do', '2', '7');
-INSERT INTO `db_menuinfo` VALUES ('11', '', '', '药品管理', '', '2', '1');
-INSERT INTO `db_menuinfo` VALUES ('12', '', '', '类别列表', '/kc/medicines/medicinesType/list.do', '0', '11');
-INSERT INTO `db_menuinfo` VALUES ('13', '', '', '药品添加', '/kc/medicines/medicines/new.do', '1', '11');
-INSERT INTO `db_menuinfo` VALUES ('14', '', '', '药品列表', '/kc/medicines/medicines/list.do', '2', '11');
-INSERT INTO `db_menuinfo` VALUES ('15', '', '', '预警管理', '/kc/medicines/safety/list.do', '3', '11');
+INSERT INTO `db_menuinfo` VALUES ('10', '', '', '部门管理', '', '2', '1');
+INSERT INTO `db_menuinfo` VALUES ('11', '', '', '部门添加', 'department/add', '0', '10');
+INSERT INTO `db_menuinfo` VALUES ('12', '', '', '部门列表', 'department/list', '1', '10');
+INSERT INTO `db_menuinfo` VALUES ('13', '', '', '员工管理', '', '3', '1');
+INSERT INTO `db_menuinfo` VALUES ('14', '', '', '员工添加', 'employee/add', '0', '13');
+INSERT INTO `db_menuinfo` VALUES ('15', '', '', '员工列表', 'employee/list', '1', '13');
 INSERT INTO `db_menuinfo` VALUES ('16', '', '', '处方管理', '', '3', '1');
 INSERT INTO `db_menuinfo` VALUES ('17', '', '', '处方列表', '/kc/prescription/prescription/list.do', '0', '16');
 INSERT INTO `db_menuinfo` VALUES ('18', '', '', '处方详细', '/kc/prescription/prescription/detail.do', '1', '16');
