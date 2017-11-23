@@ -4,6 +4,9 @@ import javax.persistence.*;
 
 import lombok.Data;
 
+/**
+ * 用户bean
+ */
 @Data
 @Entity
 @Table(name="DB_User")

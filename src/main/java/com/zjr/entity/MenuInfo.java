@@ -14,7 +14,7 @@ import javax.persistence.Table;
 import lombok.Data;
 
 /**
- *  菜单
+ *  菜单bean
  */
 @Data
 @Entity

@@ -13,7 +13,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.zjr.entity.User;
 import com.zjr.service.UserService;
 import com.zjr.util.PageList;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+
+/**
+ * 用户控制层
+ */
 @Controller
 @RequestMapping("/userinfo")
 public class UserInfoController {
@@ -68,4 +73,15 @@ public class UserInfoController {
 	    		return "userinfo/userEdit";
 	    	}     	
 	    }
+
+		@ResponseBody
+		@RequestMapping(value = "check",method = RequestMethod.GET)
+		public String check(String loginName, HttpServletRequest req){
+			String str="success";
+			if(userService.checkName(loginName)){
+				str="fail";
+			}
+			return str;
+		}
+
 }

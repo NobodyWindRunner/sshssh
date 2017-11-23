@@ -5,7 +5,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>${obj.id==null?"添加用户信息":"修改用户信息" }</title>
+    <title>${obj.id==null?"添加项目信息":"修改项目信息" }</title>
     <script type="text/javascript" src="../../js/jquery/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="../../js/jquery/Validform_v5.3.2_min.js"></script>
 	<script type="text/javascript" src="../../js/datepicker/WdatePicker.js"></script>
@@ -38,9 +38,9 @@
             <a href="../project/list?page=${page}" class="back"><i></i><span>返回列表页</span></a>
             <a href="/views/center.jsp" class="home"><i></i><span>首页</span></a>
             <i class="arrow"></i>
-            <a href="../project/list"><span>用户管理</span></a>
+            <a href="../project/list"><span>项目管理</span></a>
             <i class="arrow"></i>
-            <span>${obj.id==null?"添加用户信息":"修改用户信息"}</span>
+            <span>${obj.id==null?"添加项目信息":"修改项目信息"}</span>
         </div>
         <div class="line10"></div>
         <!--/导航栏-->
@@ -49,7 +49,7 @@
             <div id="floatHead" class="content-tab">
                 <div class="content-tab-ul-wrap">
                     <ul>
-                        <li><a href="javascript:;" onclick="tabs(this);" class="selected">${obj.id==null?"添加用户信息":"修改用户信息"}</a></li>
+                        <li><a href="javascript:;" onclick="tabs(this);" class="selected">${obj.id==null?"添加项目信息":"修改项目信息"}</a></li>
                     </ul>
                 </div>
             </div>
@@ -64,7 +64,7 @@
                     <span id="ajaxmsg">*</span>
                 </dd>
             </dl>
-            <dl class="upwd">
+            <dl>
                 <dt>项目描述</dt>
                 <dd>
                     <input name="detail" type="text" value="${obj.detail}" id="txtDetail" class="input normal" datatype="*2-100" sucmsg=" " />

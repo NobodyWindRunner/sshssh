@@ -34,13 +34,11 @@ public interface ProjectService {
 	/**
 	 * 列
 	 */
-	PageList<Project> queryHQLByPage(int page,
-                                     int size);
+	PageList<Project> queryHQLByPage(int page,int size);
 	/**
 	 * 历史
 	 */
-	PageList<Project> queryHisHQLByPage(int page,
-                                        int size);
+	PageList<Project> queryHisHQLByPage(int page,int size);
 	
 	/**
 	 * 计

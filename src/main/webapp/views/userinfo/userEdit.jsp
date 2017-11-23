@@ -20,7 +20,7 @@
         		if($(this).val()=="")
         			return;
         		$("#ajaxmsg").html("<img src='image/ajax-loader.gif'/>正在检测...");
-        		$.get("/kc/userinfo/user/check.do",{"loginName":$(this).val()},function(data){
+        		$.get("../project/check",{"loginName":$(this).val()},function(data){
         			if(data=="success"){
         				$("#ajaxmsg").html("可以使用！").css("color","green");
         			}else{

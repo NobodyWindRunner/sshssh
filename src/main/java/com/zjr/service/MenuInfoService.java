@@ -23,8 +23,7 @@ public interface MenuInfoService {
 	List<MenuInfo> query();
 
 	/**
-	 * @param id
-	 * @return 根据主键删除菜单
+	 * @return 删除菜单
 	 */
 	boolean del(MenuInfo menuInfo);
 	/**

@@ -18,7 +18,7 @@ import com.zjr.service.MenuInfoService;
 
 
 /**
- * @category 菜单控制层
+ * 菜单控制层
  */
 @Controller
 public class IndexMenuController {

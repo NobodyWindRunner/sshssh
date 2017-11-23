@@ -34,10 +34,14 @@ public interface UserService {
 	/**
 	 * 列
 	 */
-	PageList<User> queryHQLByPage(int page,
-                                  int size);
+	PageList<User> queryHQLByPage(int page,int size);
 	/**
 	 * 计
 	 */
 	Long count();
+
+	/**
+	 * 重
+	 */
+	boolean checkName(String name);
 }

@@ -36,7 +36,7 @@
                 <li>站点名称：SSH XX管理系统</li>
                 <li>公司名称：软件工作室</li>
                 <li>网站域名：localhost:8080/</li>
-                <li>安装目录：/NewSSHDemo/</li>
+                <li>安装目录：/sshssh/</li>
                 <li>网站管理目录：admin</li>
                 <li>服务器IP：127.0.0.1</li>
             </ul>

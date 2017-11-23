@@ -15,6 +15,10 @@ import com.zjr.entity.Project;
 import com.zjr.service.ProjectService;
 import com.zjr.util.PageList;
 
+
+/**
+ * 项目控制层
+ */
 @Controller
 @RequestMapping("/project")
 public class ProjectController {

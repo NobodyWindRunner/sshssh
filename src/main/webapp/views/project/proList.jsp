@@ -6,7 +6,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>用户信息列表</title>
+    <title>项目信息列表</title>
     <script type="text/javascript" src="../../js/jquery/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="../../js/jquery/jquery-1.8.0.min.js"></script>
     <script type="text/javascript" src="../../js/jquery/jquery.lazyload.min.js"></script>

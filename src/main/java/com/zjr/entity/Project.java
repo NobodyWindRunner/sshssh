@@ -4,7 +4,10 @@ import javax.persistence.*;
 
 import lombok.Data;
 
-//项目实体类 
+/**
+ * 项目bean
+ */
+
 @Data
 @Entity
 @Table(name="DB_Project")

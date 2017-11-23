@@ -67,5 +67,12 @@ public class UserServiceImpl implements UserService {
 	}
 
 
+	@Override
+	public boolean checkName(String name) {
+		// TODO Auto-generated method stub
+		User user=dao.get("from Department where loginName=?", name);
+		return user!=null;
+	}
+
 
 }
