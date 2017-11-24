@@ -298,7 +298,7 @@
                             <ul class="drop-item">
                                 <li><a href="/views/center.jsp" target="mainframe">管理中心</a></li>
                                 <li><a onclick="linkMenuTree(false, '');" href="" target="mainframe">修改密码</a></li>
-                                <li><a id="lbtnExit" onclick="lbtnExit_Click">注销登录</a></li>
+                                <li><a href="logout" id="lbtnExit">注销登录</a></li>
                             </ul>
                         </div>
                     </div>
@@ -362,6 +362,5 @@
             <iframe src="index.jsp" id="mainframe" name="mainframe" frameborder="0"></iframe>
         </div>
     </form>
-<a href="/kc/system/unit/list.do">列表</a>
 </body>
 </html>

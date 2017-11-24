@@ -4,14 +4,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import com.zjr.entity.User;
 
 
 /**
- * @category 权限验证拦截器，控制权限
+ * 登录拦截器，拦截未登录就访问的请求
  */
 public class PowerInterceptor extends HandlerInterceptorAdapter {
 

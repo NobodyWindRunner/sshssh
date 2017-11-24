@@ -42,8 +42,18 @@ public class IndexMenuController extends BaseController{
 		//登录页
 		return "login";
 	}
+
+	@RequestMapping(value = "logout")
+	public String logout(HttpServletRequest req, HttpServletResponse rep,HttpSession session) throws IOException, IOException {
+		session = req.getSession(false);
+		if(session!=null){
+			session.removeAttribute("adminsession");
+		}
+		return "login";
+	}
+
 	@RequestMapping(value = "index")
-    public String login(Integer id,String password,HttpServletRequest rep,HttpServletResponse req,HttpSession session)throws IOException{
+    public String login(Integer id,String password,HttpServletRequest rep,HttpSession session)throws IOException{
     	if(String.valueOf(id)==null&&password==null){
     		rep.setAttribute("message", "请输入用户名跟密码");
     	}else if(String.valueOf(id)==""){
