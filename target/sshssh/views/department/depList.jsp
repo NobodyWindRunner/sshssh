@@ -6,7 +6,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>用户信息列表</title>
+    <title>部门信息列表</title>
     <script type="text/javascript" src="../../js/jquery/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="../../js/jquery/jquery-1.8.0.min.js"></script>
     <script type="text/javascript" src="../../js/jquery/jquery.lazyload.min.js"></script>
@@ -18,6 +18,16 @@
     <link href="../../css/pagination.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="../../css/page.css"/>
     <script type="text/javascript">
+        //表格是否有数据
+        $(function () {
+            var v=$(".ltable");
+            var vcount=$(".ltable tr td").filter("td").size();
+            if(vcount==0){
+                var tr = '<tr><td colspan="9" align="center">'+"很抱歉,没有找到相关数据"+'</td></tr>';
+                $(".ltable").append(tr);
+                $(".pagelist").css("display", "none");
+            }
+        });
         $(function () {
             imgLayout();
             $(window).resize(function () {
@@ -27,7 +37,6 @@
             $(".pic img").lazyload({ load: AutoResizeImage, effect: "fadeIn" });
             //点击图片链接
             $(".pic img").click(function () {
-                //$.dialog({ lock: true, title: "查看大图", content: "<img src=\"" + $(this).attr("src") + "\" />",padding: 0 });
                 var linkUrl = $(this).parent().parent().find(".foot a").attr("href");
                 if (linkUrl != "") {
                     location.href = linkUrl; //跳转到修改页面
@@ -81,7 +90,7 @@
             <a href="javascript:history.back(-1);" class="back"><i></i><span>返回上一页</span></a>
             <a href="/views/center.jsp" class="home"><i></i><span>首页</span></a>
             <i class="arrow"></i>
-            <span>用户信息列表</span>
+            <span>部门信息列表</span>
         </div>
         <!--/导航栏-->
         <!--工具栏-->

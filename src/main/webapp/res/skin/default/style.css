@@ -14,7 +14,7 @@
 	.login-field{ display:inline-block; padding:11px 0 11px 10px; width:296px; height:20px; line-height:20px; color:#ACB6C0; font-size:17px; background:#fff; border:1px solid #E5E5E5; border-radius:6px 6px 6px 6px; margin-bottom:10px; vertical-align:middle; }
 		.login-field:focus{ border:1px solid #BBD5EA; }
 	.placeholder{ color:#999; }
-	.login-field-icon{ position:absolute; display:block; top:14px; right:13px; width:16px; height:20px; cursor:pointer; background:url(skin_icons.png) no-repeat; }
+	.login-field-icon{ position:absolute; display:block; top:1px; right:13px; width:16px; height:20px; cursor:pointer; background:url(skin_icons.png) no-repeat; }
 		.login-field-icon.user{ background-position:-1px -137px;}
 		.login-field-icon.pwd{ background-position:-28px -137px; }
 	.btn-login{ display:block; margin:0; padding:10px 0; width:100%; color:#fff; border:2px solid #ECEFF1; border-radius:6px 6px 6px 6px;  background:#33B5E5; font-size:16.5px; text-decoration:none; cursor:pointer; *border:0; }

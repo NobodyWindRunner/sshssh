@@ -288,7 +288,7 @@
                 <div class="nav-right">
                     <div class="icon-info">
                         <span>
-                            您好，${user.loginName}<br />
+                            您好，${adminsession.loginName}<br />
                         </span>
                     </div>
                     <div class="icon-option">

@@ -18,6 +18,16 @@
     <link href="../../css/pagination.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="../../css/page.css"/>
     <script type="text/javascript">
+        //表格是否有数据
+        $(function () {
+            var v=$(".ltable");
+            var vcount=$(".ltable tr td").filter("td").size();
+            if(vcount==0){
+                var tr = '<tr><td colspan="9" align="center">'+"很抱歉,没有找到相关数据"+'</td></tr>';
+                $(".ltable").append(tr);
+                $(".pagelist").css("display", "none");
+            }
+        });
         $(function () {
             imgLayout();
             $(window).resize(function () {

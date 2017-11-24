@@ -71,7 +71,7 @@ public class DepartmentController {
 	    	}else{
 	    		req.setAttribute("obj", dep);
 	    		req.setAttribute("page", page);
-	    		req.setAttribute("message", "当前用户为 编号"+dep.getId()+" 部门！");
+	    		req.setAttribute("message", "当前部门为 编号"+dep.getId()+" 部门！");
 	    		return "department/depEdit";
 	    	}     	
 	    }
