@@ -20,7 +20,7 @@
         		if($(this).val()=="")
         			return;
         		$("#ajaxmsg").html("<img src='../../image/ajax-loader.gif'/>正在检测...");
-        		$.get("../department/check",{"Name":$(this).val()},function(data){
+        		$.get("../department/check",{"name":$(this).val()},function(data){
         			if(data=="success"){
         				$("#ajaxmsg").html("可以使用！").css("color","green");
         			}else{

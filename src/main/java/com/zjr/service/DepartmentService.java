@@ -32,7 +32,8 @@ public interface DepartmentService {
 	 * 查
 	 */
 	Department get(int id);
-	
+
+	Department getByName(String name);
 	/**
 	 * 分页列
 	 */

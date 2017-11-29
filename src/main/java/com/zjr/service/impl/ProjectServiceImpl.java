@@ -86,4 +86,15 @@ public class ProjectServiceImpl implements ProjectService {
 		return pro!=null;
 	}
 
+	@Override
+	public PageList<Project> queryByName(String proName, int page, int size) {
+		List<Project> list=dao.queryHQLByPage("from Project where proName like '%"+proName+"%' order by id desc", false, page, size);
+		if(list.size()==0&&page>1){
+			page=page-1;
+			list=dao.queryHQLByPage("from Project where proName like '%"+proName+"%' order by id desc", false, page, size);
+		}
+		int count=dao.count("select count(id) from Project where proName like '%"+proName+"%' order by id desc").intValue();
+		return new PageList<Project>(list, page, size, count);
+	}
+
 }

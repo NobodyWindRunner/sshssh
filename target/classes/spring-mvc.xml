@@ -28,10 +28,10 @@
 	</bean>
 	
 	<!--静态资源的访问-->
-	<mvc:resources location="res/image/" mapping="/image/**"/>
-	<mvc:resources location="res/js/" mapping="/js/**"/>
-	<mvc:resources location="res/css/" mapping="/css/**"/>
-	<mvc:resources location="res/skin/" mapping="/skin/**"/>
+	<mvc:resources location="/res/image/" mapping="/image/**"/>
+	<mvc:resources location="/res/js/" mapping="/js/**"/>
+	<mvc:resources location="/res/css/" mapping="/css/**"/>
+	<mvc:resources location="/res/skin/" mapping="/skin/**"/>
 
     <!--登录拦截-->
 	<mvc:interceptors>
@@ -39,7 +39,7 @@
             <!--拦截-->
             <mvc:mapping path="/**"/>
             <!--排除-->
-            <mvc:exclude-mapping path="/valid/login"/>
+            <mvc:exclude-mapping path="/login"/>
             <mvc:exclude-mapping path="/index"/>
 			<bean class="com.zjr.interceptor.PowerInterceptor"></bean>
 		</mvc:interceptor>

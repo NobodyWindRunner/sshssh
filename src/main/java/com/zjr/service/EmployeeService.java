@@ -45,4 +45,9 @@ public interface EmployeeService {
 	 * 计
 	 */
 	Long count();
+
+	/**
+	 *模糊列
+	 */
+	PageList<Employee> queryByName(String name,int page, int size);
 }

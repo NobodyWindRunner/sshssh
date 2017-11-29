@@ -3,9 +3,9 @@ I:\sshssh\src\main\java\com\zjr\util\HibernateUtil.java
 I:\sshssh\src\main\java\com\zjr\entity\MenuInfo.java
 I:\sshssh\src\main\java\com\zjr\entity\Employee.java
 I:\sshssh\src\main\java\com\zjr\service\EmployeeService.java
-I:\sshssh\src\main\java\com\zjr\entity\Project.java
 I:\sshssh\src\main\java\com\zjr\service\impl\DepartmentServiceImpl.java
 I:\sshssh\src\main\java\com\zjr\service\ProjectService.java
+I:\sshssh\src\main\java\com\zjr\entity\Project.java
 I:\sshssh\src\main\java\com\zjr\util\PageList.java
 I:\sshssh\src\main\java\com\zjr\service\impl\UserServiceImpl.java
 I:\sshssh\src\main\java\com\zjr\entity\Department.java
@@ -14,9 +14,10 @@ I:\sshssh\src\main\java\com\zjr\service\DepartmentService.java
 I:\sshssh\src\main\java\com\zjr\util\MyPage.java
 I:\sshssh\src\main\java\com\zjr\service\impl\MenuInfoServiceImpl.java
 I:\sshssh\src\main\java\com\zjr\controller\ProjectController.java
-I:\sshssh\src\main\java\com\zjr\service\impl\EmployeeServiceImpl.java
 I:\sshssh\src\main\java\com\zjr\controller\UserInfoController.java
+I:\sshssh\src\main\java\com\zjr\service\impl\EmployeeServiceImpl.java
 I:\sshssh\src\main\java\com\zjr\controller\IndexMenuController.java
+I:\sshssh\src\main\java\com\zjr\interceptor\PowerInterceptor.java
 I:\sshssh\src\main\java\com\zjr\service\MenuInfoService.java
 I:\sshssh\src\main\java\com\zjr\service\LoginService.java
 I:\sshssh\src\main\java\com\zjr\service\UserService.java

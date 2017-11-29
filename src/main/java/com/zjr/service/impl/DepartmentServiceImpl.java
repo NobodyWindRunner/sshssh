@@ -46,6 +46,12 @@ public class DepartmentServiceImpl implements DepartmentService {
 	}
 
 	@Override
+	public Department getByName(String name) {
+		// TODO Auto-generated method stub
+		return dao.get("from Department where name=?", name);
+	}
+
+	@Override
 	public PageList<Department> queryHQLByPage( int page,
 			int size) {
 		List<Department> list=dao.queryHQLByPage("from Department order by id desc", false, page, size);

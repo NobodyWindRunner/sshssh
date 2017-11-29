@@ -19,8 +19,8 @@
         	$("#txtLoginName").change(function(){
         		if($(this).val()=="")
         			return;
-        		$("#ajaxmsg").html("<img src='image/ajax-loader.gif'/>正在检测...");
-        		$.get("../project/check",{"loginName":$(this).val()},function(data){
+                $("#ajaxmsg").html("<img src='../../image/ajax-loader.gif'/>正在检测...");
+        		$.get("../userinfo/check",{"loginName":$(this).val()},function(data){
         			if(data=="success"){
         				$("#ajaxmsg").html("可以使用！").css("color","green");
         			}else{
@@ -68,6 +68,7 @@
                 <dt>密码</dt>
                 <dd>
                     <input name="password" type="text" value="${obj.password}" id="txtPwd" class="input normal" datatype="*2-100" sucmsg=" " />
+                    <span id="ajaxmsg">*</span>
                 </dd>
             </dl>
 			<dl>

@@ -50,5 +50,8 @@ public interface ProjectService {
 	 */
 	boolean checkName(String proName);
 
-	
+	/**
+	 *模糊列
+	 */
+	PageList<Project> queryByName(String proName,int page, int size);
 }

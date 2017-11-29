@@ -75,4 +75,14 @@ public class EmployeeServiceImpl implements EmployeeService{
 		return dao.count("select count(id) from Employee");
 	}
 
+	@Override
+	public PageList<Employee> queryByName(String name, int page, int size) {
+		List<Employee> list=dao.queryHQLByPage("from Employee where name like '%"+name+"%' order by id desc", false, page, size);
+		if(list.size()==0&&page>1){
+			page=page-1;
+			list=dao.queryHQLByPage("from Employee where name like '%"+name+"%' order by id desc", false, page, size);
+		}
+		int count=dao.count("select count(id) from Employee where name like '%"+name+"%' order by id desc").intValue();
+		return new PageList<Employee>(list, page, size, count);
+	}
 }

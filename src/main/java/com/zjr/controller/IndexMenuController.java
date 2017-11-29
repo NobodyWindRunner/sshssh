@@ -22,7 +22,7 @@ import com.zjr.service.MenuInfoService;
  * 菜单控制层
  */
 @Controller
-public class IndexMenuController extends BaseController{
+public class IndexMenuController{
 	@Resource
     private MenuInfoService service;
 	@Resource
@@ -37,7 +37,7 @@ public class IndexMenuController extends BaseController{
 		return "index";
 	}
 
-	@RequestMapping(value = "/valid/login")
+	@RequestMapping(value = "login")
 	public String index(HttpServletRequest req){
 		//登录页
 		return "login";
@@ -53,24 +53,23 @@ public class IndexMenuController extends BaseController{
 	}
 
 	@RequestMapping(value = "index")
-    public String login(Integer id,String password,HttpServletRequest rep,HttpSession session)throws IOException{
-    	if(String.valueOf(id)==null&&password==null){
-    		rep.setAttribute("message", "请输入用户名跟密码");
-    	}else if(String.valueOf(id)==""){
-    		rep.setAttribute("message", "用户名不能为空");
-    	}else if(password==""){
-    		rep.setAttribute("message", "密码不能为空");
+    public String login(User user,HttpServletRequest req,HttpSession session)throws IOException{
+    	if(user.getId()==null&&user.getPassword()==null){
+			req.setAttribute("message", "请输入用户名跟密码");
+    	}else if(user.getId()==null){
+			req.setAttribute("message", "用户名不能为空");
+    	}else if(user.getPassword()==null){
+			req.setAttribute("message", "密码不能为空");
     		return "login";
     	}else{
-    		User user=loginService.login(id, password);
-        	if(user!=null){
-        		rep.setAttribute("user", user);
-				session.setAttribute("adminsession", user);
-        		this.addMenu(rep);
-        		return "index";
-        	}
-    	}	
-    	rep.setAttribute("message", "登陆失败");
+    		User logUser =loginService.login(user.getId(), user.getPassword());
+    		if(logUser!=null){
+				session.setAttribute("adminsession", logUser);
+				this.addMenu(req);
+				return "index";
+			}
+			req.setAttribute("message", "用户名或密码错误");
+    	}
     	return "login";
     }
 }

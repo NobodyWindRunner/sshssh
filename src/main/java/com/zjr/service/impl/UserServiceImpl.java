@@ -70,9 +70,18 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public boolean checkName(String name) {
 		// TODO Auto-generated method stub
-		User user=dao.get("from Department where loginName=?", name);
+		User user=dao.get("from User where loginName=?", name);
 		return user!=null;
 	}
 
-
+	@Override
+	public PageList<User> queryByName(String loginName, int page, int size) {
+		List<User> list=dao.queryHQLByPage("from User where loginName like '%"+loginName+"%' order by id desc", false, page, size);
+		if(list.size()==0&&page>1){
+			page=page-1;
+			list=dao.queryHQLByPage("from User where loginName like '%"+loginName+"%' order by id desc", false, page, size);
+		}
+		int count=dao.count("select count(id) from User where loginName like '%"+loginName+"%' order by id desc").intValue();
+		return new PageList<User>(list, page, size, count);
+	}
 }

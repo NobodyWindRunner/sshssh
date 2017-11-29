@@ -16,11 +16,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-	<link href="../skin/default/style.css" rel="stylesheet" type="text/css" />
-    <link href="../js/artDialog/skins/default.css" rel="stylesheet" type="text/css"></link>
-    <script type="text/javascript" src="../js/jquery/jquery-1.10.2.min.js"></script>
-    <script type="text/javascript" src="../js/artDialog/artDialog.js"></script>
-    <script type="text/javascript" src="../js/sys_dialog.js"></script>
+	<link href="<%=path%>/skin/default/style.css" rel="stylesheet" type="text/css" />
+    <link href="<%=path%>/js/artDialog/skins/default.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="<%=path%>/js/jquery/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="<%=path%>/js/artDialog/artDialog.js"></script>
+    <script type="text/javascript" src="<%=path%>/js/sys_dialog.js"></script>
 <script type="text/javascript">
 	function CheckIn(){	
 		var userName=$("#txtUserName").val();
@@ -48,7 +48,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body class="loginbody">
   <form action="index" id="form" name="form" method="post" onsubmit="return CheckIn();">
   	<div class="login-screen">
-  		<h1>系统登录</h1>
   		<div class="login-icon">LOGO</div>
   		<div class="login-form">
   			<div class="control-group">

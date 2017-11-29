@@ -3,6 +3,8 @@ package com.zjr.service;
 import com.zjr.entity.User;
 import com.zjr.util.PageList;
 
+import java.util.List;
+
 
 public interface UserService {
 	
@@ -44,4 +46,9 @@ public interface UserService {
 	 * 重
 	 */
 	boolean checkName(String name);
+
+	/**
+	 *模糊列
+	 */
+	PageList<User> queryByName(String loginName,int page, int size);
 }

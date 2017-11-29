@@ -72,23 +72,23 @@
             <dl>
                 <dt>部门</dt>
                 <dd>
-                    <select name="dept" datatype="*" class="input normal" sucmsg=" ">
-                        <option value="">请选择</option>
+                    <input name="dept" list="browsers" type="text" class="input normal"/>
+                    <datalist id="browsers">
                         <c:forEach items="${depList}" var="data">
                             <c:choose>
-                                <c:when test="${obj.deptId.id==data.id}">
-                                    <option selected="selected" value="${data.id}">
+                                <c:when test="${obj.deptId.name==data.name}">
+                                    <option selected="selected" value="${data.name}">
                                             ${data.name}
                                     </option>
                                 </c:when>
                                 <c:otherwise>
-                                    <option  value="${data.id}">
+                                    <option  value="${data.name}">
                                             ${data.name}
                                     </option>
                                 </c:otherwise>
                             </c:choose>
                         </c:forEach>
-                    </select>
+                    </datalist>
                 </dd>
             </dl>
         </div>

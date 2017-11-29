@@ -29,18 +29,6 @@
             }
         });
         $(function () {
-        	
-        	$("#ltable").find("tr").each(function(index,element){
-        		var a = $(element).children();
-        		for(var i=0;i<a.length;i++){
-        			if(a.eq(i).text()=="进行中"){
-        				$("#statusVal").css('color','green');
-        			}else{
-        				$("#statusVal").css('color','red');
-        			}
-        			
-        		}
-        	});
             imgLayout();
             $(window).resize(function () {
                 imgLayout();
