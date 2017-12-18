@@ -107,7 +107,7 @@
                 </div>
                 <div class="r-list">
                     <input name="txtKeywords" type="text" id="txtKeywords" class="keyword" />
-                    <a id="lbtnSearch" class="btn-search"  href="../userinfo/like?loginName=" onclick="form1.submit()">查询</a>
+                    <a id="lbtnSearch" class="btn-search"  href="../userinfo/like?loginName=" onclick="location.href='../userinfo/like?loginName='+document.getElementById('txtKeywords').value;return false;">查询</a>
                 </div>
             </div>
         </div>

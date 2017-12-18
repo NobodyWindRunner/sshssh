@@ -42,6 +42,7 @@ public class EmployeeController {
 				emp=empService.get(newId);
 				req.setAttribute("obj", emp);
 				req.setAttribute("message", "添加编号为 "+emp.getId()+" 员工成功！");
+				return "employee/empEdit";
 			}
 			req.setAttribute("message","该部门不存在，请添加该部门！");
 			return "employee/empEdit";

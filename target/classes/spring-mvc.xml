@@ -37,7 +37,7 @@
 	<mvc:interceptors>
 		<mvc:interceptor>
             <!--拦截-->
-            <mvc:mapping path="/**"/>
+            <mvc:mapping path="/**/**"/>
             <!--排除-->
             <mvc:exclude-mapping path="/login"/>
             <mvc:exclude-mapping path="/index"/>
